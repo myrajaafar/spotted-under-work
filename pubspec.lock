@@ -137,6 +137,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  faabul_color_conversion:
+    dependency: transitive
+    description:
+      name: faabul_color_conversion
+      sha256: "7e6f50acb35468c223fb96aed315e7b71ebeadc711eca8fe36ac6b854d412a38"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  faabul_color_picker:
+    dependency: "direct main"
+    description:
+      name: faabul_color_picker
+      sha256: "0d3fe0525b5764b6dcc98a3a083cc69cd116cf390863514c500a00bb62b397a1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   fake_async:
     dependency: transitive
     description:

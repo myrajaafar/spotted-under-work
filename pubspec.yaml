@@ -47,6 +47,7 @@ dependencies:
   audio_video_progress_bar: ^0.9.0
   http: ^1.2.0
   flutter_colorpicker: ^0.6.0
+  faabul_color_picker: ^1.1.0
 
 dev_dependencies:
   flutter_test:

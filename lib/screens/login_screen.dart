@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotted/auth.dart';
@@ -22,14 +21,9 @@ class _SigninState extends State<LoginScreen> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controllerpass = TextEditingController();
   Future<void> signin() async {
-    try {
-      await Auth()
-          .signin(email: _controller.text, password: _controllerpass.text)
-          .whenComplete(() => Get.snackbar("Success", "Signed in",
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: Colors.green.withOpacity(0.1),
-              colorText: Colors.green));
-    } on FirebaseAuthException catch (e) {
+    await Auth()
+        .signin(email: _controller.text, password: _controllerpass.text)
+        .then(onError: (e) {
       setState(() {
         errorMessage = e.message;
       });
@@ -38,7 +32,11 @@ class _SigninState extends State<LoginScreen> {
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.red.withOpacity(0.1),
           colorText: Colors.red);
-    }
+    },
+            (value) => Get.snackbar("Success", "Signed in",
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.green.withOpacity(0.1),
+                colorText: Colors.green));
   }
 
   @override
