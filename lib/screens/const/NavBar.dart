@@ -31,13 +31,10 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
         backgroundColor: theme.colorScheme.background,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => widget.page),
-            );
+            Navigator.pop(context);
           },
-           //download svg and change according to accent/onbackground
-          icon: Image.asset('lib/images/goback.png'),
+          //download svg and change according to accent/onbackground
+          icon: Image.asset('lib/images/backdark.png'),
           iconSize: screenWidth * 0.09,
           color: theme.colorScheme.onBackground,
         ),
@@ -57,16 +54,16 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
             child: Image.asset(
               //download svg and change according to accent/onbackground
-              'lib/images/lightlogoicon.png',
+              'lib/images/logo.png',
               width: screenWidth * 0.08,
               height: screenWidth * 0.08,
             ),
           ),
         ],
-        shape: Border(bottom: BorderSide(color: theme.colorScheme.onBackground, width: 1)),
+        shape: Border(
+            bottom:
+                BorderSide(color: theme.colorScheme.onBackground, width: 1)),
       ),
     );
   }
-
-
 }

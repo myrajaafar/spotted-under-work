@@ -1,9 +1,10 @@
 // ignore_for_file: use_super_parameters, library_private_types_in_public_api, avoid_print, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'profile_screen.dart';
+
 import 'const/NavBar.dart';
 import 'others_Profile.dart';
+import 'profile_screen.dart';
 
 class friendscreen extends StatefulWidget {
   const friendscreen({Key? key}) : super(key: key);
@@ -29,7 +30,8 @@ class FriendList extends StatefulWidget {
 }
 
 class _FriendListState extends State<FriendList> {
-  Map<Friend, bool> unfollowStatus = {}; // Map to store unfollow status for each friend
+  Map<Friend, bool> unfollowStatus =
+      {}; // Map to store unfollow status for each friend
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,8 @@ class _FriendListState extends State<FriendList> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OthersProfileScreen(username: friend.name),
+                    builder: (context) =>
+                        OthersProfileScreen(username: friend.name),
                   ),
                 );
               },
@@ -58,7 +61,8 @@ class _FriendListState extends State<FriendList> {
               title: Text(
                 friend.name.toUpperCase(),
                 style: TextStyle(
-                  fontSize: screenWidth * 0.05, // Adjust font size based on screen width
+                  fontSize: screenWidth *
+                      0.05, // Adjust font size based on screen width
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -67,14 +71,19 @@ class _FriendListState extends State<FriendList> {
                 onTap: () {
                   // Implement unfollow functionality
                   setState(() {
-                    unfollowStatus[friend] = !(unfollowStatus[friend] ?? false); // Toggle the unfollow status for this friend
+                    unfollowStatus[friend] = !(unfollowStatus[friend] ??
+                        false); // Toggle the unfollow status for this friend
                   });
-                  print('Unfollow ${friend.name}');
+                  print('Unvibe ${friend.name}');
                 },
                 child: Image.asset(
-                  unfollowStatus[friend] == true ? 'lib/images/follow.png' : 'lib/images/unfollow.png',
-                  width: screenWidth * 0.06, // Adjust icon size based on screen width
-                  height: screenWidth * 0.06, // Adjust icon size based on screen width
+                  unfollowStatus[friend] == true
+                      ? 'lib/images/vibe.png'
+                      : 'lib/images/unvibe.png',
+                  width: screenWidth *
+                      0.06, // Adjust icon size based on screen width
+                  height: screenWidth *
+                      0.06, // Adjust icon size based on screen width
                 ),
               ),
             ),
@@ -97,20 +106,23 @@ class _FriendsScreenState extends State<friendscreen> {
 
     return Scaffold(
       //theme is not changing based on the friends settigns!!!!-yomna
-      appBar: ProfileAppBar(header: 'friends', page: ProfileScreen(), theme: Theme.of(
-        context
-      )), // Page should be of the user!
+      appBar: ProfileAppBar(
+          header: 'friends',
+          page: ProfileScreen(),
+          theme: Theme.of(context)), // Page should be of the user!
       body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: screenWidth * 0.04), // Adjust spacing based on screen width
-                FriendList(friends: friends),
-              ],
-            ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                  height: screenWidth *
+                      0.04), // Adjust spacing based on screen width
+              FriendList(friends: friends),
+            ],
           ),
         ),
+      ),
     );
   }
 }

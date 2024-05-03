@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+
 import '../friends.dart';
-import '../playlists.dart';
 import '../other_playlists.dart';
+import '../playlists.dart';
 
 // Import the ThemeClass
 
@@ -12,14 +11,16 @@ class OthersProfileBody extends StatefulWidget {
   final String username;
   final bool isPrivate;
   bool follow;
-  final ThemeData themeData; // Add a boolean flag to indicate if the profile is private
+  final ThemeData
+      themeData; // Add a boolean flag to indicate if the profile is private
 // Accept the ThemeClass object// Extract the accent color
 
   OthersProfileBody({
     Key? key,
     required this.username,
     required this.isPrivate,
-    this.follow = false, required this.themeData,
+    this.follow = false,
+    required this.themeData,
   }) : super(key: key);
 
   @override
@@ -49,8 +50,7 @@ class _OthersProfileBodyState extends State<OthersProfileBody> {
                     children: [
                       CircleAvatar(
                         radius: screenHeight * 0.1,
-                        backgroundImage:
-                            AssetImage('lib/images/aespa karina icon.jpg'),
+                        backgroundImage: AssetImage('lib/images/Ellipse-1.jpg'),
                       ),
                       if (!widget.isPrivate)
                         Positioned(
@@ -61,11 +61,12 @@ class _OthersProfileBodyState extends State<OthersProfileBody> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        OthersPlaylistscreen(theme:Theme.of(context))), // ma3raftch kepp the same theme as the profile
+                                    builder: (context) => OthersPlaylistscreen(
+                                        theme: Theme.of(
+                                            context))), // ma3raftch kepp the same theme as the profile
                               );
                             },
-                            icon: Image.asset('lib/images/darkplaylisticon.png',
+                            icon: Image.asset('lib/images/playlistdark.png',
                                 width: screenWidth * 0.07,
                                 height: screenWidth * 0.07),
                           ),
@@ -248,7 +249,7 @@ class _OthersProfileBodyState extends State<OthersProfileBody> {
                   Container(
                     width: screenWidth * 0.5,
                     height: screenHeight,
- // Use theme color
+                    // Use theme color
                     child: Center(
                       child: Text(
                         'posts',

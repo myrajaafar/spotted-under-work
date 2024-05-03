@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotted/auth.dart';
@@ -13,36 +12,36 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _SignupState extends State<RegisterScreen> {
+  Function? f() {
+    return null;
+  }
+
   String? errorMessage = '';
   bool isLoged = true;
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controllerpass = TextEditingController();
-  final TextEditingController namecon = TextEditingController();
-  final TextEditingController numbercon = TextEditingController();
+  final TextEditingController _controllerusername = TextEditingController();
 
   Future<void> signup() async {
-    try {
-      await Auth()
-          .signup(
-              email: _controller.text,
-              password: _controllerpass.text,
-              username: namecon.text,
-              phone: numbercon.text)
-          .whenComplete(() => Get.snackbar("Success", "New User has been added",
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: Colors.green.withOpacity(0.1),
-              colorText: Colors.green))
-          .catchError((error) {
-        Get.snackbar("Failure", "Something went wrong",
-            snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: Colors.red.withOpacity(0.1),
-            colorText: Colors.red);
-      });
-    } on FirebaseAuthException catch (e) {
+    await Auth()
+        .signup(
+            email: _controller.text,
+            password: _controllerpass.text,
+            username: _controllerusername.text)
+        .then(onError: (e) {
       setState(() {
         errorMessage = e.message;
       });
-    }
+
+      Get.snackbar("Failure", "$errorMessage",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red.withOpacity(0.1),
+          colorText: Colors.red);
+    },
+            (value) => Get.snackbar("Success", "Signed in",
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.green.withOpacity(0.1),
+                colorText: Colors.green));
   }
 
   @override
@@ -105,7 +104,7 @@ class _SignupState extends State<RegisterScreen> {
                     child: SizedBox(
                       width: 350,
                       child: TextField(
-                        controller: namecon,
+                        controller: _controllerusername,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50)),
@@ -202,12 +201,7 @@ class _SignupState extends State<RegisterScreen> {
                 SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () async {
-                    signup().then((value) => {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => FeedScreen2())))
-                        });
+                    signup().then((value) => {Get.to(() => FeedScreen())});
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(178, 203, 164, 255),

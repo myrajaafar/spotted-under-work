@@ -3,6 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:spotted/auth.dart';
+import 'package:spotted/screens/login_screen.dart';
+
 import 'const/NavBar.dart';
 import 'profile_screen.dart';
 
@@ -14,7 +17,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  ProfileAppBar profileAppBar = ProfileAppBar(header: 'Settings', page: ProfileScreen(), theme: ThemeData());
+  ProfileAppBar profileAppBar = ProfileAppBar(
+      header: 'Settings', page: ProfileScreen(), theme: ThemeData());
   List<String> buttonTexts = [
     'Edit profile',
     'Notifications',
@@ -49,29 +53,43 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           // Navigate to Edit Profile page
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ProfileScreen()), // Replace with your page widget
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ProfileScreen()), // Replace with your page widget
                           );
                           break;
                         case 1:
                           // Navigate to Notifications page
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ProfileScreen()), // Replace with your page widget
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ProfileScreen()), // Replace with your page widget
                           );
                           break;
+                        case 5:
+                          Auth().singout().then((value) => {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()))
+                              });
                         // Add cases for remaining buttons with corresponding page navigation
                         default:
                           print('Button index not mapped to a page');
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: buttonWidth * 0.1, vertical: buttonHeight * 0.5),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: buttonWidth * 0.1,
+                          vertical: buttonHeight * 0.5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(buttonHeight * 0.5),
                       ),
                     ),
                     child: Text(
-                      buttonTexts[index].toUpperCase(), // Display the text from the list
+                      buttonTexts[index]
+                          .toUpperCase(), // Display the text from the list
                       style: TextStyle(
                         fontSize: buttonTextSize,
                         fontWeight: FontWeight.bold,
@@ -88,4 +106,3 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
-

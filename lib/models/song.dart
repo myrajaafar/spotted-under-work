@@ -19,6 +19,28 @@ class Song {
     this.isTrending = true,
   }) : assert(songPath != null || songUrl != null);
 
+  factory Song.fromMediaItem(MediaItem mediaItem) {
+    String? songPath, songUrl;
+
+    if ((mediaItem.extras!['url'] as String).startsWith('asset:///')) {
+      songPath =
+          mediaItem.extras!['url'].toString().replaceFirst('asset:///', '');
+    } else {
+      songUrl = mediaItem.extras!['url'];
+    }
+
+    return Song(
+      id: mediaItem.id,
+      artist: Artist(id: '1', name: 'mediaItem.artist'),
+      title: mediaItem.title,
+      imageUrl: mediaItem.artUri!.toString(),
+      songPath: songPath,
+      songUrl: songUrl,
+    );
+
+    MediaItem toMediaItem() => MediaItem(id: id, artist: artist.id);
+  }
+
   static List<Song> songs = [
     Song(
       artist: Artist(id: '1', name: 'Justin Bieber'),

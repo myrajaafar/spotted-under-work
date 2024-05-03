@@ -26,7 +26,6 @@ class Auth {
     required String email,
     required String password,
     required username,
-    required phone,
   }) async =>
       await {
         user = {

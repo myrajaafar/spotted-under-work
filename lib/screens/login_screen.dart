@@ -147,7 +147,7 @@ class _SigninState extends State<LoginScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: ((context) => FeedScreen2())))
+                                      builder: ((context) => FeedScreen())))
                             });
                       },
                       style: ElevatedButton.styleFrom(
