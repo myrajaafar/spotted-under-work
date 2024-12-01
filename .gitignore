@@ -1,4 +1,7 @@
 # Flutter-specific
+.dart_tool
+.flutter-plugins
+.flutter-plugins-dependencies
 .vscode
 .git
 build
