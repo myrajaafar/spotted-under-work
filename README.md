@@ -1,4 +1,4 @@
-# Spotted ![Spotted Logo](assets/images/logolight.png)
+# Spotted <img src="assets/images/logolight.png" alt="logo" width="30" height="30"/>
 
 Spotted is a dynamic mobile app that lets users discover, share, and connect through music, vibes, and creative expression. It allows for personalized interactions  in a musically enriched environment.
 
