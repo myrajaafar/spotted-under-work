@@ -1,16 +1,14 @@
-# spotted
+# Spotted ![Spotted Logo](assets/images/logolight.png)
 
-A new Flutter project.
+Spotted is a dynamic mobile app that lets users discover, share, and connect through music, vibes, and creative expression. It allows for personalized interactions  in a musically enriched environment.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Discover new songs and share your vibe with others.
+- Personalize your experience with color themes and song preferences.
+- Seamlessly interact with content and other users in a visually stunning UI.
 
-A few resources to get you started if this is your first Flutter project:
+## Figma Design
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+You can view the Figma design of Spotted here: [Spotted Figma Design](https://www.figma.com/design/ppe9gVSI7utWBImyhQ0MnO/Spotted?node-id=0-1&t=VHJQ4sEIkLGbJA2C-1)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
