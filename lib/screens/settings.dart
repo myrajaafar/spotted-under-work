@@ -6,8 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:spotted/auth.dart';
 import 'package:spotted/screens/login_screen.dart';
 
-import 'const/NavBar.dart';
-import 'profile_screen.dart';
+import '../core/constants/NavBar.dart';
+import '../features/profile/screens/profile_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

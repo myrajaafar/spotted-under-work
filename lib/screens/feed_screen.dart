@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:spotted/screens/player.dart';
 
-import 'playlists.dart';
-import 'post_screen.dart';
-import 'profile_screen.dart';
+import '../features/playlists/screens/playlists.dart';
+import '../features/post/screens/post_screen.dart';
+import '../features/profile/screens/profile_screen.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
