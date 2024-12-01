@@ -1,49 +1,50 @@
-# Miscellaneous
+# Flutter-specific
+.vscode
+.git
+build
+ios
+android
+linux
+macos
+plugins
+web
+windows
+test
+gradle
+.gitattributes
+.metadata
+analysis_options.yaml
+firebase.json 
+gradlew
+gradlew.bat
+pubspec.lock
+settings.gradle.kts
+
+
+
+
+# Byte-compiled / intermediate files
 *.class
+*.lock
 *.log
 *.pyc
+*.pyo
 *.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
+*.swo
+*.tmp
 
-# IntelliJ related
+# Keys and credentials
+*.key
+*.jks
+secrets.json
+
+# IDE-specific
 *.iml
 *.ipr
 *.iws
-.idea/
+*.sublime-workspace
+*.sublime-project
+*.log
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
-
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-
-# Ignore Gradle project-specific cache directory
-.gradle
-
-# Ignore Gradle build output directory
-build
+# Others
+pubspec.lock
